@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #E9E0CE;
+    color: #1A1712;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    background-color: #E9E0CE;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #E9E0CE;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #B0A080;
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .font-fraunces {
+    font-family: 'Fraunces', serif;
+  }
+  .font-mono-dm {
+    font-family: 'DM Mono', monospace;
+  }
+}
+
+/* Terminal text colors */
+.term-green { color: #3FB950; }
+.term-blue  { color: #79C0FF; }
+.term-yellow{ color: #E3B341; }
+.term-red   { color: #F85149; }
+.term-purple{ color: #D2A8FF; }
+.term-muted { color: #8B949E; }
+.term-white { color: #C9D1D9; }
+
+/* Code block syntax */
+.kw  { color: #FF7B72; }
+.str { color: #A5D6FF; }
+.cm  { color: #8B949E; }
+.fn  { color: #D2A8FF; }
+.num { color: #79C0FF; }
+
+/* Chip shimmer */
+.chip-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.chip-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(168,98,0,0.08) 50%, transparent 60%);
+  transform: skewX(-15deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.chip-shimmer:hover::after {
+  opacity: 1;
+  animation: shimmer 0.55s ease forwards;
+}
+
+@keyframes shimmer {
+  0%   { left: -80%; }
+  100% { left: 120%; }
+}
+
+/* Card top accent line */
+.card-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #A86200, transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.card-accent:hover::before {
+  opacity: 1;
+}
+
+/* Scrollbar for modal */
+.modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #B0A080 #E9E0CE;
+}
