@@ -5,7 +5,7 @@ export const PROJECTS: Record<string, Project> = {
     icon: '🧠',
     cat: 'AIOps · Incident Commander',
     title: 'CLARK ONE — Autonomous SRE',
-    github: 'https://github.com/l3shan-sv',
+    github: 'https://github.com/L3shan-sv/Clark-1.git',
     purpose: 'Eliminate the class of failures where humans are the bottleneck during incidents.',
     desc: 'An autonomous incident commander built on Temporal.io durable workflows. When a service degrades, CLARK ONE ingests live Prometheus metrics, OpenTelemetry traces, and pgvector-indexed incident embeddings, then uses the Claude API to surface a ranked remediation plan in under 60 seconds — and executes it. If the remediation workflow crashes mid-execution, Temporal resumes from the exact checkpoint — no partial failures, no orphaned rollbacks.',
     features: [
@@ -68,7 +68,7 @@ export const PROJECTS: Record<string, Project> = {
     icon: '🔁',
     cat: 'GitOps · Enterprise CI/CD',
     title: 'GitOps Pipeline — Enterprise Standard of Truth',
-    github: 'https://github.com/l3shan-sv',
+    github: 'https://github.com/L3shan-sv/c1-gitops-2.git',
     purpose: 'Make configuration drift a solved problem, not an on-call rotation.',
     desc: 'An enterprise-grade CI/CD engine where Git is the single source of truth across 8+ environments. ArgoCD continuously reconciles cluster state against the repo — any drift is detected in seconds and self-healed automatically. OPA Gatekeeper acts as the cluster\'s immune system, rejecting non-compliant pods before they ever reach production. A compliance score across 6 pillars (observability, SLO, CVE posture, Vault integration, runbooks, network policy) must hit 80/100 or deployment is hard-blocked.',
     features: [
@@ -123,7 +123,7 @@ export const PROJECTS: Record<string, Project> = {
     icon: '🔄',
     cat: 'Data Engineering · CDC',
     title: 'MigrateX — Zero-Downtime DB Migration Engine',
-    github: 'https://github.com/l3shan-sv',
+    github: 'https://github.com/L3shan-sv/MigrateX.git',
     purpose: 'Solve the database migration problem where most engineers never look: the transaction log.',
     desc: 'A log-based CDC migration engine that operates at the database transaction log level — not the application level. Using Kafka and Debezium, MigrateX streams WAL/binlog events to migrate between heterogeneous databases (PostgreSQL → MongoDB) with zero application downtime and zero data loss. No dual-write code in the application, no dual-write race condition, no inconsistency windows. At-least-once delivery with consumer-side idempotency ensures exactly-once semantics at the data layer.',
     features: [
@@ -175,7 +175,7 @@ export const PROJECTS: Record<string, Project> = {
     icon: '🌐',
     cat: 'Network Engineering · eBPF',
     title: 'NimbusNet — Kernel-Aware Global Network Mesh',
-    github: 'https://github.com/l3shan-sv',
+    github: 'https://github.com/L3shan-sv/NimbusNet.git',
     purpose: 'Detect and route around network failures before the application layer knows they exist.',
     desc: 'A global multi-region network mesh on AWS Transit Gateway where C-based eBPF probes monitor TCP health at the Linux kernel level. eBPF programs attached to kernel socket buffers surface per-flow RTT, congestion window state, and ECN signals in real time. When packet loss or RST floods are detected, BGP-style autonomous failover triggers in milliseconds — without application code changes, without DNS TTL delays, without a human in the loop. Active-active across 3 AZs per region with 99.99% theoretical SLA.',
     features: [
@@ -234,7 +234,7 @@ export const PROJECTS: Record<string, Project> = {
     icon: '🚕',
     cat: 'Distributed Systems · Event-Driven',
     title: 'RideFlow — Distributed Ride Dispatch Platform',
-    github: 'https://github.com/l3shan-sv',
+    github: 'https://github.com/L3shan-sv/kafka.git',
     purpose: 'Build the Kafka-first architecture where any service can crash and the system keeps moving.',
     desc: 'A Kafka-first distributed ride dispatch platform modelled on Uber/Lyft architecture where services never call each other directly — they only produce and consume events. Any service can crash and the others keep processing. The dual-cancellation race condition (driver and rider cancel simultaneously) is solved with Redis atomic SET NX locks — zero distributed transaction overhead, zero saga compensating transactions. End-to-end idempotency across all consumers means Kafka\'s at-least-once delivery can never cause duplicate rides, matches, or charges.',
     features: [
@@ -285,7 +285,7 @@ export const PROJECTS: Record<string, Project> = {
     icon: '🏗️',
     cat: 'Internal Developer Platform',
     title: 'nerve.idp — Internal Developer Platform',
-    github: 'https://github.com/l3shan-sv',
+    github: 'https://github.com/L3shan-sv/platform-idp.git',
     purpose: 'Replace tribal knowledge and Slack-based approvals with a self-service platform engineers actually want to use.',
     desc: 'A full Internal Developer Platform: 11 FastAPI microservices + React 18 TypeScript frontend covering service scaffolding, IaC approval workflows, compliance enforcement, error budget management, and AI-assisted incident response — all in one portal. The Google SRE multi-window burn rate model is enforced at the API gateway: when error budget hits zero, new deployments receive 423 Locked. A Neo4j blast radius visualizer shows 5-hop dependency graphs so engineers know exactly what breaks when service X goes down. The Claude API co-pilot surfaces root cause and drafts post-mortems during active incidents.',
     features: [

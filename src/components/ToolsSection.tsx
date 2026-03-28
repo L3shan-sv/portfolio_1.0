@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { TOOL_GROUPS } from '../data/tools';
 import { getToolIcon } from '../data/toolIcons';
 import Reveal from './Reveal';
+import type { Tool } from '../types';
 
 interface ChipProps {
   label: string;
@@ -11,6 +12,7 @@ interface ChipProps {
 
 const Chip: React.FC<ChipProps> = ({ label, visible, delay }) => {
   const icon = getToolIcon(label);
+
   return (
     <div
       className="chip-shimmer flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-bg2 text-[0.73rem] text-muted cursor-default select-none relative overflow-hidden transition-all duration-200 hover:border-accent hover:text-text hover:bg-card hover:-translate-y-[3px]"
@@ -32,18 +34,19 @@ const Chip: React.FC<ChipProps> = ({ label, visible, delay }) => {
           {icon}
         </span>
       )}
-      {label}
+      <span>{label}</span>
     </div>
   );
 };
 
-const ToolGroupRow: React.FC<{ label: string; tools: string[] }> = ({ label, tools }) => {
+const ToolGroupRow: React.FC<{ label: string; tools: Tool[] }> = ({ label, tools }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -53,6 +56,7 @@ const ToolGroupRow: React.FC<{ label: string; tools: string[] }> = ({ label, too
       },
       { threshold: 0.1 }
     );
+
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
@@ -63,9 +67,15 @@ const ToolGroupRow: React.FC<{ label: string; tools: string[] }> = ({ label, too
         {label}
         <span className="flex-1 h-px bg-border" />
       </div>
+
       <div className="flex flex-wrap gap-2">
         {tools.map((tool, i) => (
-          <Chip key={tool} label={tool} visible={visible} delay={i * 55} />
+          <Chip
+            key={`${tool}-${i}`}
+            label={tool}
+            visible={visible}
+            delay={i * 55}
+          />
         ))}
       </div>
     </div>
@@ -75,13 +85,23 @@ const ToolGroupRow: React.FC<{ label: string; tools: string[] }> = ({ label, too
 const ToolsSection: React.FC = () => (
   <section className="max-w-[1080px] mx-auto px-10 py-20" id="tools">
     <Reveal>
-      <div className="font-mono-dm text-[0.65rem] text-accent tracking-[0.2em] uppercase mb-1">// Tools</div>
-      <h2 className="font-fraunces text-[2rem] font-bold tracking-[-0.02em] mb-1 leading-tight">Tech Stack</h2>
-      <p className="text-muted text-[0.86rem] mb-9">The full arsenal — hover to explore.</p>
+      <div className="font-mono-dm text-[0.65rem] text-accent tracking-[0.2em] uppercase mb-1">
+        // Tools
+      </div>
+      <h2 className="font-fraunces text-[2rem] font-bold tracking-[-0.02em] mb-1 leading-tight">
+        Tech Stack
+      </h2>
+      <p className="text-muted text-[0.86rem] mb-9">
+        The full arsenal — hover to explore.
+      </p>
     </Reveal>
 
     {TOOL_GROUPS.map(group => (
-      <ToolGroupRow key={group.label} label={group.label} tools={group.tools} />
+      <ToolGroupRow
+        key={group.label}
+        label={group.label}
+        tools={group.tools}
+      />
     ))}
   </section>
 );

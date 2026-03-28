@@ -34,10 +34,8 @@ export interface Certification {
   topics: string[];
 }
 
-export interface Tool {
-  label: string;
-  icon: string; // raw SVG string
-}
+// 🔥 FIXED TYPES
+export type Tool = string;
 
 export interface ToolGroup {
   label: string;
