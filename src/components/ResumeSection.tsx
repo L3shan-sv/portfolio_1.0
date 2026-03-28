@@ -104,11 +104,14 @@ const ResumeSection: React.FC = () => (
     <Reveal>
       <div className="mt-10 flex justify-center">
         <a
-          href="#"
-          onClick={e => { e.preventDefault(); alert('Replace # with your CV PDF URL'); }}
+          href="https://drive.google.com/uc?export=download&id=1hFp1sjYNQDZQ00E-OrI1s57wQ9f59ZPx"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg border border-border2 bg-bg2 text-text text-[0.82rem] font-medium no-underline transition-all hover:border-accent hover:text-accent hover:-translate-y-px"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
           Download CV
         </a>
       </div>
